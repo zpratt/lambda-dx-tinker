@@ -7,7 +7,7 @@ clean-docker:
 clean: clean-docker
 	rm -rf **/node_modules
 
-run:
+run: clean-docker
 	docker run -d --rm \
 	  -e DOCKER_LAMBDA_WATCH=1 \
 	  -e DOCKER_LAMBDA_STAY_OPEN=1 \
