@@ -11,15 +11,19 @@ run:
 	  -e DOCKER_LAMBDA_STAY_OPEN=1 \
 	  -p $(port):$(port) \
 	  --name example-lambda \
-	  -v $$(pwd):/var/task:ro,delegated \
+	  -v $$(pwd)/src:/var/task:ro,delegated \
 	  lambci/lambda:nodejs12.x \
 	  index.handler
 
 runstats:
 	docker run --rm \
-	  -v $$(pwd):/var/task:ro,delegated \
+	  -v $$(pwd)/src:/var/task:ro,delegated \
 	  lambci/lambda:nodejs12.x \
 	  index.handler
 
-test:
+test-unit:
+	npm i
+	npm test
+
+test-lambda: run
 	curl -d '{}' http://localhost:$(port)/2015-03-31/functions/index/invocations
