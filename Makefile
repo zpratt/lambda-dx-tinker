@@ -1,8 +1,10 @@
 SHELL := /bin/bash -e
 port := 9001
 
-clean:
-	docker stop $$(docker ps -q -f "name=example-lambda")
+clean-docker:
+	if [[ ! -z $$(docker ps -q -f "name=example-lambda") ]]; then docker stop $$(docker ps -q -f "name=example-lambda") ; fi
+
+clean: clean-docker
 	rm -rf **/node_modules
 
 run:
@@ -25,5 +27,7 @@ test-unit:
 	npm i
 	npm test
 
-test-lambda: run
-	curl -d '{}' http://localhost:$(port)/2015-03-31/functions/index/invocations
+test-integration: run
+	npm run integration
+
+test: clean test-unit test-integration

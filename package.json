@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest src/*.spec.js",
+    "integration": "jest test/integration/*.spec.js"
   },
   "author": "zach pratt <zach@modzed.io>",
   "license": "MIT",
   "devDependencies": {
+    "frisby": "2.1.2",
     "jest": "25.1.0"
   }
 }
