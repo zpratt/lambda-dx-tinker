@@ -15,7 +15,7 @@ I'm experimenting with ways to:
 1. Install Docker
 1. Install Make
 1. Install nodejs version 12.x
-  * optionally using `nvm`
+   * optionally using `nvm`
   
 ## Running
 
