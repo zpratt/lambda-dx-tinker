@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "author": "zach pratt <zach@attackofzach.com> (http://attackofzach.com/)",
-  "license": "MIT"
+  "author": "zach pratt <zach@modzed.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "25.1.0"
+  }
 }
